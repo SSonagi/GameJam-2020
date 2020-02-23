@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     float horizontalMove = 0f;
     public float runSpeed = 40f;
-    bool jump = false;
+    float jump = 0f;
+    float jumpRememberTime = 0.1f;
 
     public GameObject camOne;
     public GameObject camTwo;
@@ -33,10 +34,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        jump -= Time.deltaTime;
 
         if(Input.GetButtonDown("Jump"))
         {
-            jump = true;
+            jump = jumpRememberTime;
         } 
         
         if(Input.GetKeyDown(KeyCode.C)) {
@@ -46,8 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime * camSwitch, false, jump);
-        jump = false;
+        controller.Move(horizontalMove * Time.fixedDeltaTime * camSwitch, false, jump > 0);
     }
 
     private float cameraChange(float CameraPos) {
