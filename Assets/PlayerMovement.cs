@@ -35,17 +35,17 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         jump -= Time.deltaTime;
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetKeyDown(KeyCode.X))
         {
             jump = jumpRememberTime;
         } 
 
-        if(Input.GetButtonUp("Jump"))
+        if(Input.GetKeyUp(KeyCode.X))
         {
             controller.Move(0, false, false, true);
         }
 
-        if (Input.GetKeyDown(KeyCode.C)) {
+        if (Input.GetKeyDown(KeyCode.Z)) {
             camSwitch = cameraChange(camSwitch);
         }
     }
