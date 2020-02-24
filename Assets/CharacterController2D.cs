@@ -140,9 +140,6 @@ public class CharacterController2D : MonoBehaviour
 		{
 			if(m_Rigidbody2D.velocity.y > 0)
 			{
-				print("2");
-				print(m_Rigidbody2D.velocity.y + " " + m_Rigidbody2D.velocity.y * cutJumpHeight);
-
 				m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_Rigidbody2D.velocity.y * cutJumpHeight);
 			}
 		}
