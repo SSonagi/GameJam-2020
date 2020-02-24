@@ -158,4 +158,10 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	public void tpPlayer()
+	{
+		m_Rigidbody2D.position = new Vector3(-m_Rigidbody2D.position.x, m_Rigidbody2D.position.y, 0f);
+		Flip();
+	}
 }

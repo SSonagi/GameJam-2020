@@ -47,13 +47,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z)) {
             camSwitch = cameraChange(camSwitch);
+            controller.tpPlayer();
         }
     }
 
     private void FixedUpdate()
     {
         jumped = controller.Move(horizontalMove * Time.fixedDeltaTime * camSwitch, false, jump > 0, false);
-        if(jumped)
+        if (jumped)
         {
             jump = 0;
             jumped = false;
