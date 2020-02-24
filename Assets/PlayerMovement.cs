@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     public CharacterController2D controller;
     float horizontalMove = 0f;
     public float runSpeed = 40f;
     float jump = 0f;
     float jumpRememberTime = 0.1f;
-
+    bool jumped = false;
     public GameObject camOne;
     public GameObject camTwo;
 
@@ -40,15 +39,25 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = jumpRememberTime;
         } 
-        
-        if(Input.GetKeyDown(KeyCode.C)) {
+
+        if(Input.GetButtonUp("Jump"))
+        {
+            controller.Move(0, false, false, true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.C)) {
             camSwitch = cameraChange(camSwitch);
         }
     }
 
     private void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime * camSwitch, false, jump > 0);
+        jumped = controller.Move(horizontalMove * Time.fixedDeltaTime * camSwitch, false, jump > 0, false);
+        if(jumped)
+        {
+            jump = 0;
+            jumped = false;
+        }
     }
 
     private float cameraChange(float CameraPos) {
