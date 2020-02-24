@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Ninja Files/Ninja PNG/1024 pixel/Scenes/Trial Scene.unity
+    guid: 5c6f597cdc38c024c91dea0cc300dc04
   m_configObjects: {}
