@@ -161,7 +161,7 @@ public class CharacterController2D : MonoBehaviour
 
 	public void tpPlayer()
 	{
-		m_Rigidbody2D.position = new Vector3(11.75f + (11.75f - m_Rigidbody2D.position.x), m_Rigidbody2D.position.y, 0f);
+		m_Rigidbody2D.position = new Vector3(11.5f + (11.5f - m_Rigidbody2D.position.x), m_Rigidbody2D.position.y, 0f);
 		Flip();
 	}
 }

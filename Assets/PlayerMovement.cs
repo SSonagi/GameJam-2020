@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(0, false, false, true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Z)) {
             camSwitch = cameraChange(camSwitch);
             controller.tpPlayer();
         }
